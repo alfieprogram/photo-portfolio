@@ -1,0 +1,48 @@
+<!-- views/album.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photo Portfolio - Album</title>
+  <link rel="stylesheet" href="/styles/main.css">
+  <style>
+    /* Add your additional styles for the album page here */
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Your Photo Portfolio</h1>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/album">Album</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main id="album">
+    <h2>Photo Album</h2>
+    <div class="slideshow-container">
+      <% for (let i = 0; i < images.length; i++) { %>
+        <div class="mySlides">
+          <img src="/album/<%= images[i].filename %>" alt="<%= images[i].name %>" style="width:100%;">
+          <div class="image-description">
+            <h3><%= images[i].name %></h3>
+            <p><%= images[i].description %></p>
+          </div>
+        </div>
+      <% } %>
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+    <script>
+      // Add your slideshow script here
+    </script>
+  </main>
+  <footer>
+    <p>&copy; 2024 Your Name</p>
+  </footer>
+</body>
+</html>
