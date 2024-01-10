@@ -1,0 +1,72 @@
+/* public/styles/album.css */
+
+body {
+    background-color: #333;
+    color: #fff;
+  }
+  
+  .slideshow-container {
+    max-width: 600px;
+    max-height: 400px;
+    position: relative;
+    margin: auto;
+  }
+  
+  .mySlides {
+    display: none;
+  }
+  
+  .mySlides img {
+    width: 100%; /* Make images fill the container width */
+    border-radius: 8px; /* Add border radius for a rounded look */
+  }
+  
+  .image-description {
+    margin-top: 20px;
+    font-style: italic;
+    color: #ccc;
+  }
+  
+  .prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+  }
+  
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+  
+  .prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  
+  /* Center the "Photo Album" text */
+  h2 {
+    text-align: center;
+    color: #fff;
+  }
+  
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: #555;
+    border-radius: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #333;
+  }
+  

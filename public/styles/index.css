@@ -1,0 +1,14 @@
+/* public/styles/index.css */
+
+/* Additional styles specific to the index.ejs file */
+body {
+    background-color: #f0f0f0;
+    color: #333;
+  }
+  
+  h2 {
+    color: #0066cc;
+  }
+  
+  /* Add more styles as needed */
+  

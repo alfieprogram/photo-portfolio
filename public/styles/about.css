@@ -1,0 +1,14 @@
+/* public/styles/about.css */
+
+/* Additional styles specific to the about.ejs file */
+body {
+    background-color: #e6f7ff;
+    color: #333;
+  }
+  
+  h2 {
+    color: #008080;
+  }
+  
+  /* Add more styles as needed */
+  

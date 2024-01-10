@@ -1,4 +1,5 @@
 <!-- views/album.ejs -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,9 +7,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Photo Portfolio - Album</title>
   <link rel="stylesheet" href="/styles/main.css">
-  <style>
-    /* Add your additional styles for the album page here */
-  </style>
+  <link rel="stylesheet" href="/styles/album.css">
+  <script>
+    // Disable right-click
+    document.addEventListener('contextmenu', function (e) {
+      e.preventDefault();
+    });
+
+    // Disable access to developer tools
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I')) {
+        e.preventDefault();
+      }
+    });
+  </script>
 </head>
 <body>
   <header>
@@ -38,11 +50,36 @@
       <a class="next" onclick="plusSlides(1)">&#10095;</a>
     </div>
     <script>
-      // Add your slideshow script here
+      let slideIndex = 1;
+
+      function showSlides(n) {
+        let i;
+        const slides = document.getElementsByClassName("mySlides");
+
+        if (n > slides.length) {
+          slideIndex = 1;
+        }
+
+        if (n < 1) {
+          slideIndex = slides.length;
+        }
+
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+
+        slides[slideIndex - 1].style.display = "block";
+      }
+
+      function plusSlides(n) {
+        showSlides((slideIndex += n));
+      }
+
+      showSlides(slideIndex);
     </script>
   </main>
   <footer>
-    <p>&copy; 2024 Your Name</p>
+    <p>&copy; 2024 Dayln Photos</p>
   </footer>
 </body>
 </html>
