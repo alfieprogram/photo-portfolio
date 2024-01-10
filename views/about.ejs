@@ -5,25 +5,57 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Photo Portfolio - About</title>
+  <title>Dayln Photo Portfolio - About</title>
   <link rel="stylesheet" href="/styles/main.css">
   <link rel="stylesheet" href="/styles/about.css">
 </head>
 <body>
   <header>
-    <h1>Your Photo Portfolio</h1>
+    <h1>Dayln Photo Portfolio</h1>
     <nav>
       <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/contact">Contact</a></li>
+        <li><a href="/home">Home</a></li>
+        
+        <li><a href="mailto:contact@photo.daydev.lol"">Contact</a></li>
         <li><a href="/album">Album</a></li>
       </ul>
     </nav>
   </header>
   <main>
     <h2>About Me</h2>
-    <!-- Add your about content here -->
+<!-- views/about.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About <%= name %></title>
+  <link rel="stylesheet" href="/styles/about.css"> <!-- Link to your CSS file -->
+</head>
+<body>
+  <header>
+    <!-- Navigation or other header content -->
+  </header>
+  <main>
+    <section class="about-me">
+      <div class="profile-image">
+        <!-- Add your profile image or avatar here -->
+        <!-- Example: <img src="/images/profile.jpg" alt="Profile Image"> -->
+      </div>
+      <div class="details">
+        <h2>About Me!</h2>
+        <p><strong>Name:</strong>Dayln</p>
+      
+        <!-- Add other details as needed -->
+        <p>
+          Hello, my name is Dayln! I am a young and passionate about Developer and Photographer. 
+          Feel free to learn more about me and my journey.
+        </p>
+        <!-- Add more paragraphs or sections as needed -->
+      </div>
+    </section>
+
   </main>
   <footer>
     <p>&copy; 2024 Your Name</p>

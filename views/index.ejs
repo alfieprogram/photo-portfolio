@@ -5,27 +5,54 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Photo Portfolio - Home</title>
+  <title>Dayln Portfolio - Home</title>
   <link rel="stylesheet" href="/styles/main.css">
   <link rel="stylesheet" href="/styles/index.css">
 </head>
 <body>
   <header>
-    <h1>Your Photo Portfolio</h1>
+    <h1>Dayln Photo Portfolio - Home</h1>
     <nav>
       <ul>
-        <li><a href="/">Home</a></li>
+     
         <li><a href="/about">About</a></li>
-        <li><a href="/contact">Contact</a></li>
+        <li><a href="mailto:contact@photo.daydev.lol"">Contact</a></li>
         <li><a href="/album">Album</a></li>
       </ul>
     </nav>
   </header>
   <main>
-    <!-- Your photo grid or content goes here -->
+    <div class="auto-type-container">
+      <h1 id="auto-type-text"></h1>
+    </div>
+  
+    <script>
+      const texts = ["Welcome to my Photo Portfolio!", "I am a Photographer that use Iphone 11 and Nikon D3100", "Time for your photo 📸"]; // Replace with your array of h1 elements
+      let index = 0;
+      const textElement = document.getElementById("auto-type-text");
+  
+      function autoType() {
+        if (index < texts.length) {
+          const currentText = texts[index];
+          const currentLength = currentText.length;
+  
+          textElement.textContent = currentText.substring(0, currentLength);
+          index++;
+  
+          setTimeout(autoType, 10000); // Adjust the delay (in milliseconds) between each character
+        } else {
+          // Reset index for continuous looping
+          index = 0;
+          setTimeout(autoType, 1000); // Adjust the delay before restarting (in milliseconds)
+        }
+      }
+  
+      // Start the auto-typing when the page loads
+      window.onload = autoType;
+    </script>
   </main>
   <footer>
-    <p>&copy; 2024 Your Name</p>
+    <p>&copy; 2024 Day Portfolio</p>
   </footer>
 </body>
 </html>

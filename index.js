@@ -6,22 +6,34 @@ const app = express();
 const port = 3000;
 
 app.set('view engine', 'ejs');
+app.use(express.static(path.join(__dirname, 'public')));
 // Middleware to block access to specific endpoints
-app.use('/album/:image', (req, res, next) => {
-  const requestedImage = req.params.image;
+// Serve images route with token validation
+app.get('/album/:filename', (req, res) => {
+  const filename = req.params.filename;
+  const imagePath = path.join(__dirname, 'public', 'album', filename);
 
-  // Specify the image files you want to block access to
-  const blockedImages = ['sunrise.png', 'blocked-image2.png'];
-
-  if (blockedImages.includes(requestedImage)) {
-    return res.status(403).send('Access Forbidden');
+  // Check if the file exists
+  if (fs.existsSync(imagePath) && validateImageToken(req.query.token, filename)) {
+    res.sendFile(imagePath);
+  } else {
+    res.status(403).send('Access Forbidden');
   }
-
-  // Continue to the next middleware if the image is not blocked
-  next();
 });
 
-app.use(express.static(path.join(__dirname, 'public')));
+// Generate a unique token for each image request
+const generateImageToken = (filename) => {
+  const secret = 'krappy-paddie'; // replace with a strong secret key
+  const hash = crypto.createHmac('sha256', secret).update(filename).digest('hex');
+  return hash;
+};
+
+// Validate the token
+const validateImageToken = (token, filename) => {
+  return token === generateImageToken(filename);
+};
+
+//app.use(express.static(path.join(__dirname, 'public')));
 
 // Load images from album.json
 const images = require('./data/album.json');
@@ -29,6 +41,9 @@ const images = require('./data/album.json');
 
 
 app.get('/', (req, res) => {
+  res.render('loading');
+});
+app.get('/home', (req, res) => {
   res.render('index');
 });
 

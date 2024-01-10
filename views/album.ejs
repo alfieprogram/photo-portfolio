@@ -16,7 +16,7 @@
 
     // Disable access to developer tools
     document.addEventListener('keydown', function (e) {
-      if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I')) {
+      if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I') || (e.ctrlKey && e.shiftKey && e.key === 'C')) {
         e.preventDefault();
       }
     });
@@ -24,13 +24,13 @@
 </head>
 <body>
   <header>
-    <h1>Your Photo Portfolio</h1>
+    <h1>Dayln Photo Portfolio - Album</h1>
     <nav>
       <ul>
-        <li><a href="/">Home</a></li>
+        <li><a href="/home">Home</a></li>
         <li><a href="/about">About</a></li>
-        <li><a href="/contact">Contact</a></li>
-        <li><a href="/album">Album</a></li>
+        <li><a href="mailto:contact@photo.daydev.lol">Contact</a></li>
+        
       </ul>
     </nav>
   </header>
@@ -48,6 +48,11 @@
       <% } %>
       <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
       <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+  
     </div>
     <script>
       let slideIndex = 1;
@@ -77,9 +82,10 @@
 
       showSlides(slideIndex);
     </script>
+      <footer>
+        <p>&copy; 2024 Dayln Photos</p>
+      </footer>
   </main>
-  <footer>
-    <p>&copy; 2024 Dayln Photos</p>
-  </footer>
+
 </body>
 </html>
