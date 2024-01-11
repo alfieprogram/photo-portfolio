@@ -2,11 +2,14 @@
 const express = require('express');
 const path = require('path');
 const session = require('express-session');
+const morgan = require('morgan');
+const { blue, red, rainbow, grey, green, yellow } = require('colors')
 const app = express();
 const port = 3000;
 
 app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(morgan('dev'));
 // Middleware to block access to specific endpoints
 // Serve images route with token validation
 app.get('/album/:filename', (req, res) => {
@@ -59,6 +62,22 @@ app.get('/album', (req, res) => {
   res.render('album', { images });
 });
 
-app.listen(port, () => {
-  console.log(`Server is running at http://localhost:${port}`);
+// Handle 404 errors
+app.use((req, res) => {
+  res.status(404).render('404');
 });
+
+app.listen(3401, '0.0.0.0', ()=>{
+     console.log(grey(`Server is running on http://localhost:${port}`));
+ console.log(red("Website turned on"))
+console.log(blue("Website Status: online"))
+
+  console.log(rainbow(`  
+ [===========================================]
+              Photo Album  
+                Working...
+         Developed by Discoverse Systems
+[===========================================]`))
+console.log(green("System Working"))
+
+})
