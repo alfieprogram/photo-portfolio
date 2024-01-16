@@ -48,7 +48,7 @@
     <div class="slideshow-container">
       <% for (let i = 0; i < images.length; i++) { %>
         <div class="mySlides">
-          <img src="/album/<%= images[i].filename %>" alt="<%= images[i].name %>" style="width:100%;">
+          <img src="/albums/<%= images[i].filename %>" alt="<%= images[i].name %>" style="width:100%;">
           <div class="image-description">
             <h3><%= images[i].name %></h3>
             <p><%= images[i].description %></p>
