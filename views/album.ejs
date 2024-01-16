@@ -34,6 +34,15 @@
       </ul>
     </nav>
   </header>
+  <div id="popup-container">
+    <div id="popup-content">
+        <span id="close-btn" onclick="closePopup()">&times;</span>
+        <h2>New Album Alert!</h2>
+        <p>We've just dropped a new Photos!. Check it out now!</p>
+        <a href="/album">View Now!</a>
+    </div>
+</div>
+
   <main id="album">
     <h2>Photo Album</h2>
     <div class="slideshow-container">
@@ -86,14 +95,7 @@
         <p>&copy; 2024 Dayln Photos</p>
       </footer>
   </main>
-  <div id="popup-container">
-    <div id="popup-content">
-        <span id="close-btn" onclick="closePopup()">&times;</span>
-        <h2>New Album Alert!</h2>
-        <p>We've just dropped a new Photos!. Check it out now!</p>
-        <a href="/album">View Now!</a>
-    </div>
-</div>
+
 <script>
   document.addEventListener("DOMContentLoaded", function() {
     // Show the popup when the page loads
