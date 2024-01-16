@@ -139,3 +139,19 @@ async function commitAndPush() {
     console.error('Error committing and pushing changes:', error.message);
   }
 }
+
+// Function to calculate server uptime
+function calculateUptime(startTime) {
+  const now = new Date();
+  const uptimeInSeconds = (now - startTime) / 1000;
+  return formatUptime(uptimeInSeconds);
+}
+
+// Function to format uptime
+function formatUptime(uptimeInSeconds) {
+  const hours = Math.floor(uptimeInSeconds / 3600);
+  const minutes = Math.floor((uptimeInSeconds % 3600) / 60);
+  const seconds = Math.floor(uptimeInSeconds % 60);
+
+  return `${hours}h ${minutes}m ${seconds}s`;
+}
