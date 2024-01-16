@@ -5,7 +5,7 @@ const session = require('express-session');
 const morgan = require('morgan');
 const { blue, red, rainbow, grey, green, yellow } = require('colors')
 const app = express();
-const port = 3000;
+const port = 3100;
 
 app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'public')));

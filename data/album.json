@@ -1,5 +1,3 @@
-
-
 [
   {
     "filename": "sunrise.png",
@@ -67,7 +65,7 @@
     "description": "An jail cell with editing to make it look like a cartoon"
   },
   {
-    "filename": "plane.png",
+    "filename": "plane.jpg",
     "name": "A Plane in the Sky",  
     "description": "A wonderful photo of a plane in the sky flying over." 
   },
@@ -85,6 +83,96 @@
     "filename": "dragon.png",
     "name": "A Close up of a DragonFly",    
     "description": "A wonderful close up to a DragonFly with a bit of editing." 
+  },
+  {
+    "filename": "sunintree.jpg",
+    "name": "The sun in the tree",    
+    "description": "A wonderful picture of the sun between two branchs." 
+  },
+  {
+    "filename": "liss.png",
+    "name": "A Breaded Dragon",    
+    "description": "A cool photo of a breaded Dragon resting on it`s branch." 
+  },
+  {
+    "filename": "sunset.jpg",
+    "name": "An Sunset",    
+    "description": "A wonderful sunset photo that light up the clouds." 
+  },
+  {
+    "filename": "crop.png",
+    "name": "An amazing crop",        
+    "description": "A wonderful photo with editing to make it look like an amazing crop."  
+  },
+  {
+    "filename": "treewithleafs.png",
+    "name": "An amazing tree with leafs",            
+    "description": "A wonderful photo with editing to make it look like an amazing tree full of leafs."  
+  },
+  {
+    "filename": "streetlight.png",
+    "name": "An amazing streetlight",                    
+    "description": "A wonderful photo with editing to make it look like an amazing streetlight and nice and bright."  
+  },
+  {
+    "filename": "fire.png",
+    "name": "An photo of WRFS respond the a call",        
+    "description": "A wonderful photo with editing to make it look like an amazing WRFS fire engine responding to a call with lights."  
+  },
+  {
+    "filename": "greenmoon.png",
+    "name": "An amazing photo of a green sunset",                
+    "description": "A wonderful photo with alot of editing to make it look like an amazing green sunset."  
+  },
+  {
+    "filename": "dogbaw.png",
+    "name": "An amazing black and gray and white image of a dog",                
+    "description": "A wonderful photo with a bit editing to make it look like an amazing Black white and gray photo of a dog."  
+  },
+  {
+    "filename": "shopping.png",
+    "name": "An amazing photo of a full shopping card",        
+    "description": "A wonderful photo with editing to make it look like an amazing gray photo of a full shopping cart."  
+  },
+  {
+    "filename": "jail.png",
+    "name": "An amazing holding cell",        
+    "description": "A dramatic photo of a holding cell."  
+  },
+  {
+    "filename": "Lights.png",
+    "name": "An amazing porch light",        
+    "description": "A dramatic photo of a porch light with editing."  
+  },
+  {
+    "filename": "lizzs.png",
+    "name": "An photo of a strict lizzard",                
+    "description": "An very serious photo of a strict lizzard with editing."    
+  },
+  {
+    "filename": "moon.png",
+    "name": "The moon",        
+    "description": "A photo of a moon!"  
+  },
+  {
+    "filename": "Pink.png",
+    "name": "An amazing pink sky",        
+    "description": "A smooth pink sky with alot of edits."  
+  },
+  {
+    "filename": "police.png",
+    "name": "An police crusier",        
+    "description": "A WRPS crusier with the lights on. (Gotten Permisson from WRPS Officer for the photo)"  
+  },
+  {
+    "filename": "Trail.png",
+    "name": "An Leafy Trail",        
+    "description": "A leafy Trail from the fall "  
+  },
+  {
+    "filename": "win.png",
+    "name": "An Black and White Photo of a Dog",        
+    "description": "A perfect Black and White photo of a dog with editing."    
   }
-  
+ 
 ]
