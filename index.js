@@ -4,6 +4,7 @@ const path = require('path');
 const fs = require('fs');
 const session = require('express-session');
 const morgan = require('morgan');
+const simpleGit = require('simple-git');
 const { blue, red, rainbow, grey, green, yellow } = require('colors')
 const app = express();
 const port = 3100;
