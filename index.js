@@ -41,6 +41,27 @@ const validateImageToken = (token, filename) => {
 // Load images from album.json
 const images = require('./data/album.json');
 // Middleware to block access to specific endpoints
+app.use((req, res, next) => {
+  const viewCountPath = path.join(__dirname, 'data', 'viewcount.json');
+
+  // Read the view count data
+  fs.readFile(viewCountPath, 'utf8', (err, data) => {
+      if (err) {
+          console.error('Error reading view count:', err);
+          return res.status(500).send('Internal Server Error');
+      }
+
+      const viewCount = JSON.parse(data);
+      req.viewCount = viewCount;
+      next();
+  });
+});
+
+// Middleware to calculate server uptime
+app.use((req, res, next) => {
+  req.startTime = new Date();
+  next();
+});
 
 
 app.get('/', (req, res) => {
@@ -52,6 +73,11 @@ app.get('/home', (req, res) => {
 
 app.get('/about', (req, res) => {
   res.render('about');
+});
+
+app.get('/stats', (req, res) => {
+  const uptime = calculateUptime(req.startTime);
+  res.render('stat', { viewCount: req.viewCount.count, uptime });
 });
 
 app.get('/contact', (req, res) => {
@@ -67,6 +93,11 @@ app.use((req, res) => {
   res.status(404).render('404');
 });
 
+
+// Schedule the Git commit and push every 2 minutes
+setInterval(async () => {
+  await commitAndPush();
+}, 2 * 60 * 1000);
 app.listen(3401, '0.0.0.0', ()=>{
      console.log(grey(`Server is running on http://localhost:${port}`));
  console.log(red("Website turned on"))
@@ -76,8 +107,34 @@ console.log(blue("Website Status: online"))
  [===========================================]
               Photo Album  
                 Working...
-         Developed by Discoverse Systems
+         Developed by Dayln,G
 [===========================================]`))
 console.log(green("System Working"))
 
 })
+
+// Function to read viewcount.json data
+async function readViewCountData() {
+  const filePath = path.join(__dirname, 'data', 'viewcount.json');
+  try {
+    const data = await fs.promises.readFile(filePath, 'utf-8');
+    return JSON.parse(data);
+  } catch (error) {
+    console.error('Error reading viewcount.json:', error.message);
+    return { count: 0 }; // Return a default value if the file doesn't exist or has an issue
+  }
+}
+
+// Function to commit and push changes
+async function commitAndPush() {
+  const git = simpleGit();
+  try {
+    await git.add('data/viewcount.json');
+    await git.commit('Update viewcount.json');
+    await git.pull('origin', 'main');
+    await git.push('origin', 'main');
+    console.log('Changes committed and pushed.');
+  } catch (error) {
+    console.error('Error committing and pushing changes:', error.message);
+  }
+}
