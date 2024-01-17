@@ -1,81 +1,105 @@
-<!-- views/index.ejs -->
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dayln Portfolio - Home</title>
-  <link rel="stylesheet" href="/styles/main.css">
-  <link rel="stylesheet" href="/styles/index.css">
-</head>
-<body>
-  <header>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dayln Portfolio</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background: url('albums/sunrise.png') no-repeat center center fixed;
+      background-size: cover;
+      filter: blur(5px);
+    }
 
-    <nav>
-      <ul>
-     
-        <li><a href="/about">About</a></li>
-        <li><a href="mailto:contact@photo.daydev.lol"">Contact</a></li>
-        <li><a href="/album">Album</a></li>
-      </ul>
-    </nav>
-  </header>
-  <main>
-    <div id="popup-container">
-      <div id="popup-content">
-          <span id="close-btn" onclick="closePopup()">&times;</span>
-          <h2>New Album Alert!</h2>
-          <p>We've just dropped a new Photos!. Check it out now!</p>
-          <a href="/album">View Now!</a>
-      </div>
-  </div>
-    <div class="auto-type-container">
-      <h1 id="auto-type-text"></h1>
-    </div>
-  
-    <script>
-      const texts = ["Welcome to my Photo Portfolio!", "I am a Photographer that use Iphone 11 and Nikon D3100", "Time for your photo 📸"]; // Replace with your array of h1 elements
-      let index = 0;
-      const textElement = document.getElementById("auto-type-text");
-  
-      function autoType() {
-        if (index < texts.length) {
-          const currentText = texts[index];
-          const currentLength = currentText.length;
-  
-          textElement.textContent = currentText.substring(0, currentLength);
-          index++;
-  
-          setTimeout(autoType, 10000); // Adjust the delay (in milliseconds) between each character
-        } else {
-          // Reset index for continuous looping
-          index = 0;
-          setTimeout(autoType, 1000); // Adjust the delay before restarting (in milliseconds)
-        }
-      }
-  
-      // Start the auto-typing when the page loads
-      window.onload = autoType;
-    </script>
-  </main>
-  <footer>
-    <p>&copy; 2024 Day Portfolio</p>
-  </footer>
+    .container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: white;
+    }
 
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    // Show the popup when the page loads
-    setTimeout(function() {
-        document.getElementById("popup-container").style.display = "block";
-    }, 3000); // Show after 3 seconds (adjust as needed)
-});
+    .navbar {
+      background-color: rgba(255, 255, 255, 0.7);
+      padding: 15px;
+      text-align: center;
+      position: fixed;
+      width: 100%;
+      z-index: 1000;
+    }
 
-function closePopup() {
-    // Close the popup when the close button is clicked
-    document.getElementById("popup-container").style.display = "none";
+    .navbar a {
+      text-decoration: none;
+      color: #333;
+      margin: 0 15px;
+      font-size: 18px;
+    }
+    
+#popup-container {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #000000;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  z-index: 999;
 }
 
-</script>
+#popup-content {
+  text-align: center;
+}
+
+#close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+#popup-content a {
+  display: block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #3498db;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+#popup-content a:hover {
+  background-color: #2980b9;
+}
+  </style>
+</head>
+
+<body>
+  <nav class="navbar">
+    
+    <a href="/album">Portfolio</a>
+    <a href="/about">About</a>
+    <a href="mailto:dayln@photo.daydev.lol">Contact</a>
+  </nav>
+
+  <div class="container">
+    <div id="popup-container">
+        <div id="popup-content">
+            <span id="close-btn" onclick="closePopup()">&times;</span>
+            <h2>New Album Alert!</h2>
+            <p>We've just dropped a new Photos!. Check it out now!</p>
+            <a href="/album">View Now!</a>
+        </div>
+    </div>
+    <h1>Welcome to Dayln Portfolio</h1>
+    <p>I am a Photography enthusiast by love</p>
+  </div>
 </body>
+
 </html>
