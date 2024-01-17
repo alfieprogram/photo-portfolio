@@ -10,20 +10,19 @@
       margin: 0;
       padding: 0;
       font-family: 'Arial', sans-serif;
-      background: url('albums/sunrise.png') no-repeat center center fixed;
+      background: url('path/to/your/background-image.jpg') no-repeat center center fixed;
       background-size: cover;
       filter: blur(5px);
+      height: 100vh; /* Make the body take the full height of the viewport */
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    .container {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
+    .overlay-text {
       color: white;
+      text-align: center;
     }
-
     .navbar {
       background-color: rgba(255, 255, 255, 0.7);
       padding: 15px;
@@ -39,8 +38,7 @@
       margin: 0 15px;
       font-size: 18px;
     }
-    
-#popup-container {
+    #popup-container {
   display: none;
   position: fixed;
   top: 50%;
@@ -78,25 +76,17 @@
   background-color: #2980b9;
 }
   </style>
+  </style>
 </head>
 
 <body>
-  <nav class="navbar">
-    
-    <a href="/album">Portfolio</a>
-    <a href="/about">About</a>
-    <a href="mailto:dayln@photo.daydev.lol">Contact</a>
-  </nav>
-
-  <div class="container">
-    <div id="popup-container">
-        <div id="popup-content">
-            <span id="close-btn" onclick="closePopup()">&times;</span>
-            <h2>New Album Alert!</h2>
-            <p>We've just dropped a new Photos!. Check it out now!</p>
-            <a href="/album">View Now!</a>
-        </div>
-    </div>
+  <div class="overlay-text">
+    <nav class="navbar">
+        <a href="#">Home</a>
+        <a href="#">Portfolio</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+      </nav>
     <h1>Welcome to Dayln Portfolio</h1>
     <p>I am a Photography enthusiast by love</p>
   </div>
