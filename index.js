@@ -4,7 +4,6 @@ const path = require('path');
 const fs = require('fs');
 const session = require('express-session');
 const morgan = require('morgan');
-const simpleGit = require('simple-git');
 const { blue, red, rainbow, grey, green, yellow } = require('colors')
 const app = express();
 const port = 3400;
@@ -122,18 +121,3 @@ async function readViewCountData() {
     return { count: 0 }; // Return a default value if the file doesn't exist or has an issue
   }
 }
-
-// Function to commit and push changes
-async function commitAndPush() {
-  const git = simpleGit();
-  try {
-    await git.add('data/viewcount.json');
-    await git.commit('Update viewcount.json');
-    await git.pull('origin', 'main');
-    await git.push('origin', 'main');
-    console.log('Changes committed and pushed.');
-  } catch (error) {
-    console.error('Error committing and pushing changes:', error.message);
-  }
-}
-
