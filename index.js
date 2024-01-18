@@ -12,8 +12,7 @@ const port = 3400;
 app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(morgan('dev'));
-// Middleware to block access to specific endpoints
-// Serve images route with token validation
+
 app.get('/album/:filename', (req, res) => {
   const filename = req.params.filename;
   const imagePath = path.join(__dirname, 'public', 'album', filename);
@@ -77,10 +76,7 @@ app.get('/about', (req, res) => {
   res.render('about');
 });
 
-app.get('/stats', (req, res) => {
-  const uptime = calculateUptime(req.startTime);
-  res.render('stat', { viewCount: req.viewCount.count, uptime });
-});
+
 
 app.get('/contact', (req, res) => {
   res.render('contact');
@@ -141,18 +137,3 @@ async function commitAndPush() {
   }
 }
 
-// Function to calculate server uptime
-function calculateUptime(startTime) {
-  const now = new Date();
-  const uptimeInSeconds = (now - startTime) / 1000;
-  return formatUptime(uptimeInSeconds);
-}
-
-// Function to format uptime
-function formatUptime(uptimeInSeconds) {
-  const hours = Math.floor(uptimeInSeconds / 3600);
-  const minutes = Math.floor((uptimeInSeconds % 3600) / 60);
-  const seconds = Math.floor(uptimeInSeconds % 60);
-
-  return `${hours}h ${minutes}m ${seconds}s`;
-}
