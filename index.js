@@ -7,24 +7,24 @@ const morgan = require('morgan');
 const simpleGit = require('simple-git');
 const { blue, red, rainbow, grey, green, yellow } = require('colors')
 const app = express();
-const port = 3100;
+const port = 3400;
 
 app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(morgan('dev'));
 // Middleware to block access to specific endpoints
 // Serve images route with token validation
-//app.get('/album/:filename', (req, res) => {
- // const filename = req.params.filename;
-//  const imagePath = path.join(__dirname, 'public', 'album', filename);
+app.get('/album/:filename', (req, res) => {
+  const filename = req.params.filename;
+  const imagePath = path.join(__dirname, 'public', 'album', filename);
 
  // // Check if the file exists
-  //if (fs.existsSync(imagePath) && validateImageToken(req.query.token, filename)) {
-  //  res.sendFile(imagePath);
- // } else {
- //   res.status(403).send('Access Forbidden');
- // }
-//});
+  if (fs.existsSync(imagePath) && validateImageToken(req.query.token, filename)) {
+  res.sendFile(imagePath);
+  } else {
+    res.status(403).send('Access Forbidden');
+  }
+});
 
 // Generate a unique token for each image request
 const generateImageToken = (filename) => {
