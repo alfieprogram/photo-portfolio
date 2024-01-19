@@ -1,7 +1,8 @@
 /* public/styles/album.css */
 
 body {
-    background-color: #333;
+  background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 10%, rgba(9,69,121,1) 67%, rgba(8,37,128,1) 100%);
     color: #fff;
   }
   

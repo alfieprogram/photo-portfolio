@@ -1,10 +1,10 @@
 // app.js
 const express = require('express');
 const path = require('path');
-const fs = require('fs');
+const fs = require('fs').promises;
 const session = require('express-session');
 const morgan = require('morgan');
-const simpleGit = require('simple-git');
+const crypto = require('crypto');
 const { blue, red, rainbow, grey, green, yellow } = require('colors')
 const app = express();
 const port = 3400;
@@ -12,8 +12,7 @@ const port = 3400;
 app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(morgan('dev'));
-// Middleware to block access to specific endpoints
-// Serve images route with token validation
+
 app.get('/album/:filename', (req, res) => {
   const filename = req.params.filename;
   const imagePath = path.join(__dirname, 'public', 'album', filename);
@@ -77,10 +76,7 @@ app.get('/about', (req, res) => {
   res.render('about');
 });
 
-app.get('/stats', (req, res) => {
-  const uptime = calculateUptime(req.startTime);
-  res.render('stat', { viewCount: req.viewCount.count, uptime });
-});
+
 
 app.get('/contact', (req, res) => {
   res.render('contact');
@@ -125,34 +121,4 @@ async function readViewCountData() {
     console.error('Error reading viewcount.json:', error.message);
     return { count: 0 }; // Return a default value if the file doesn't exist or has an issue
   }
-}
-
-// Function to commit and push changes
-async function commitAndPush() {
-  const git = simpleGit();
-  try {
-    await git.add('data/viewcount.json');
-    await git.commit('Update viewcount.json');
-    await git.pull('origin', 'main');
-    await git.push('origin', 'main');
-    console.log('Changes committed and pushed.');
-  } catch (error) {
-    console.error('Error committing and pushing changes:', error.message);
-  }
-}
-
-// Function to calculate server uptime
-function calculateUptime(startTime) {
-  const now = new Date();
-  const uptimeInSeconds = (now - startTime) / 1000;
-  return formatUptime(uptimeInSeconds);
-}
-
-// Function to format uptime
-function formatUptime(uptimeInSeconds) {
-  const hours = Math.floor(uptimeInSeconds / 3600);
-  const minutes = Math.floor((uptimeInSeconds % 3600) / 60);
-  const seconds = Math.floor(uptimeInSeconds % 60);
-
-  return `${hours}h ${minutes}m ${seconds}s`;
 }
