@@ -4,10 +4,6 @@ const path = require('path');
 const fs = require('fs').promises;
 const session = require('express-session');
 const morgan = require('morgan');
-<<<<<<< HEAD
-const crypto = require('crypto');
-=======
->>>>>>> 7cc815cd79b88bf024de9961f78151e7e39b61f1
 const { blue, red, rainbow, grey, green, yellow } = require('colors')
 const app = express();
 const port = 3400;
