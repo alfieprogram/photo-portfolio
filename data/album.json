@@ -173,6 +173,11 @@
     "filename": "win.png",
     "name": "An Black and White Photo of a Dog",        
     "description": "A perfect Black and White photo of a dog with editing."    
+  },
+  {
+    "filename": "js.png",
+    "name": "A Lizard in the Forest Incloser",        
+    "description": "A perfect view of a lizard in the forest type setting with everything bit blurry but lizard"    
   }
  
 ]
