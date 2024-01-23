@@ -91,10 +91,6 @@ app.use((req, res) => {
 });
 
 
-// Schedule the Git commit and push every 2 minutes
-setInterval(async () => {
-  await commitAndPush();
-}, 2 * 60 * 1000);
 app.listen(3401, '0.0.0.0', ()=>{
      console.log(grey(`Server is running on http://localhost:${port}`));
  console.log(red("Website turned on"))
